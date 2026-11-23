@@ -1,5 +1,304 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ayet</title><meta http-equiv="refresh" content="0; url=privacy-policy.html"><link rel="canonical" href="privacy-policy.html">
-<style>body{margin:0;background:#FBF8F1;color:#1F2420;font:16px system-ui,sans-serif;padding:40px 16px;text-align:center}@media(prefers-color-scheme:dark){body{background:#141816;color:#ECE8DF}}a{color:#5B8E7D}</style>
-</head><body><a href="privacy-policy.html">Ayet – Gizlilik Politikası / Privacy Policy</a></body></html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayet</title>
+<meta name="description" content="Her namaz vaktinde Kur'an-ı Kerim'den bir ayet. Sade, güzel, dikkat dağıtmayan bir Android uygulaması.">
+<meta property="og:title" content="Ayet: Günlük Ayet ve Namaz">
+<meta property="og:description" content="Her namaz vaktinde bir ayet. Namaz vakitleri, kıble, Kur'an-ı Kerim ve mübarek günler.">
+<meta property="og:image" content="assets/icon-192.png">
+<meta name="theme-color" content="#1E4A3F">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Lora:wght@500;600&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#FBF8F1; --paper:#FFFDF8; --ink:#1F2420; --muted:#5E655F; --line:#E7E1D3;
+    --green:#5B8E7D; --green-ink:#3F6F60; --deep:#1E4A3F; --gold:#F4A259; --soft:#F4E285; --rose:#BC4B51;
+    --on-deep:#F7F3E8; --on-deep-muted:#C9D8D1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#141816; --paper:#1C211F; --ink:#ECE8DF; --muted:#A9B0AA; --line:#2C3330;
+      --green-ink:#8CC3B1; --deep:#10261F; --on-deep-muted:#A9C2B8;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#141816; --paper:#1C211F; --ink:#ECE8DF; --muted:#A9B0AA; --line:#2C3330;
+    --green-ink:#8CC3B1; --deep:#10261F; --on-deep-muted:#A9C2B8;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  [dir=rtl] body, body[dir=rtl] { font-family:"Noto Naskh Arabic", "Geeza Pro", system-ui, sans-serif; }
+  img { max-width:100%; height:auto; display:block; }
+  a { color:var(--green-ink); }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 16px; }
+  h1, h2, h3 { font-family:Lora, Georgia, serif; font-weight:600; line-height:1.2; margin:0; }
+  [dir=rtl] h1, [dir=rtl] h2, [dir=rtl] h3 { font-family:"Noto Naskh Arabic", serif; }
+
+  /* Üst şerit + kahraman alanı (koyu yeşil, uygulama ekranlarıyla aynı) */
+  .hero { background:var(--deep); color:var(--on-deep);
+          background-image:radial-gradient(ellipse at 70% 0%, rgba(91,142,125,.45), transparent 60%); }
+  .bar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 0; }
+  .brand { display:flex; align-items:center; gap:10px; color:inherit; text-decoration:none;
+           font-family:Lora, Georgia, serif; font-size:22px; font-weight:600; }
+  .brand img { width:40px; height:40px; border-radius:10px; }
+  .langs { display:flex; gap:4px; background:rgba(255,255,255,.08); border-radius:999px; padding:4px; }
+  .langs button { border:0; background:none; color:var(--on-deep); font:600 14px system-ui, sans-serif;
+                  padding:8px 12px; min-height:36px; border-radius:999px; cursor:pointer; }
+  .langs button[aria-pressed=true] { background:var(--soft); color:#2A2A1E; }
+  .langs button:focus-visible, .cta:focus-visible { outline:2px solid var(--gold); outline-offset:2px; }
+  .hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; padding:40px 0 64px; }
+  .ornament { display:flex; align-items:center; gap:10px; color:var(--gold); margin-bottom:18px; }
+  .ornament span { width:36px; height:1px; background:currentColor; }
+  .ornament i { width:7px; height:7px; background:currentColor; transform:rotate(45deg); }
+  .hero h1 { font-size:clamp(34px, 5.4vw, 54px); }
+  .hero p.lead { color:var(--on-deep-muted); font-size:19px; margin:16px 0 28px; max-width:30em; }
+  .cta { display:inline-flex; align-items:center; gap:10px; background:var(--gold); color:#2B1D0E;
+         text-decoration:none; font-weight:700; padding:14px 22px; border-radius:14px; min-height:48px; }
+  .cta svg { width:20px; height:20px; }
+  .cta.soon { cursor:default; }
+  .note { color:var(--on-deep-muted); font-size:14px; margin-top:12px; }
+  .hero-shot { justify-self:center; width:min(340px, 100%); border-radius:22px; overflow:hidden;
+               box-shadow:0 24px 60px rgba(0,0,0,.35); aspect-ratio:9/16; background:#163a31; }
+
+  /* Örnek ayet */
+  .verse { text-align:center; padding:72px 0 24px; }
+  .verse .ar { font-family:"Amiri Quran", serif; font-size:clamp(26px, 4vw, 36px); line-height:2.1; direction:rtl; color:var(--ink); }
+  .verse .tr { font-size:19px; max-width:34em; margin:14px auto 8px; }
+  .verse .ref { color:var(--muted); font-size:14px; }
+  .divider { width:56px; height:3px; border-radius:2px; background:var(--gold); margin:22px auto; }
+
+  /* Özellikler */
+  section.block { padding:56px 0; }
+  .block h2 { font-size:clamp(26px, 3.4vw, 34px); text-align:center; }
+  .block .sub { text-align:center; color:var(--muted); margin:10px auto 32px; max-width:36em; }
+  .features { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+  .feature { background:var(--paper); border:1px solid var(--line); border-radius:18px; padding:22px; }
+  .feature .ic { width:44px; height:44px; border-radius:12px; display:grid; place-items:center;
+                 background:color-mix(in srgb, var(--soft) 45%, transparent); color:var(--green-ink); margin-bottom:12px; }
+  .feature .ic svg { width:24px; height:24px; }
+  .feature h3 { font-size:19px; margin-bottom:6px; }
+  .feature p { margin:0; color:var(--muted); font-size:16px; }
+
+  /* Ekran görüntüleri */
+  .shots { display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; }
+  .shots img { border-radius:18px; aspect-ratio:9/16; width:100%; object-fit:cover; background:var(--deep);
+               box-shadow:0 10px 28px rgba(0,0,0,.12); }
+
+  /* Gizlilik */
+  .privacy { background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:32px;
+             display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; }
+  .privacy .ic { width:56px; height:56px; border-radius:16px; display:grid; place-items:center;
+                 background:color-mix(in srgb, var(--green) 18%, transparent); color:var(--green-ink); }
+  .privacy .ic svg { width:28px; height:28px; }
+  .privacy h2 { text-align:start; font-size:24px; margin-bottom:6px; }
+  .privacy p { margin:0; color:var(--muted); }
+
+  footer { border-top:1px solid var(--line); margin-top:40px; padding:32px 0 48px; color:var(--muted); font-size:14px; }
+  footer .links { display:flex; flex-wrap:wrap; gap:8px 20px; margin-bottom:14px; }
+  footer .links a { font-weight:600; }
+  footer p { margin:6px 0; }
+
+  @media (max-width:860px) {
+    .hero-grid { grid-template-columns:1fr; text-align:center; padding:24px 0 48px; gap:32px; }
+    .hero p.lead { margin-inline:auto; }
+    .ornament { justify-content:center; }
+    .features { grid-template-columns:1fr 1fr; }
+    .shots { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:62%;
+             overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px; }
+    .shots img { scroll-snap-align:center; }
+  }
+  @media (max-width:560px) {
+    body { font-size:16px; }
+    .brand span { display:none; }
+    .features { grid-template-columns:1fr; }
+    .privacy { grid-template-columns:1fr; text-align:center; padding:24px; }
+    .privacy .ic { margin:0 auto; }
+    .privacy h2 { text-align:center; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#"><img src="assets/icon-192.png" alt="" width="40" height="40"><span>Ayet</span></a>
+      <div class="langs" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="false">ع</button>
+      </div>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <div class="ornament" aria-hidden="true"><span></span><i></i><span></span></div>
+        <h1 data-t="h1">Günde beş kez, Kur'an'la huzurlu bir an</h1>
+        <p class="lead" data-t="lead">Ayet, her namaz vaktinde size Kur'an-ı Kerim'den bir ayet gönderir. Kalabalık ekranlar yok: yalnızca ayet, meali ve namaz vakitleriniz.</p>
+        <a class="cta soon" id="cta" aria-disabled="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.8v18.4c0 .5.5.8.9.6l16-9.2a.7.7 0 0 0 0-1.2l-16-9.2c-.4-.2-.9.1-.9.6z"/></svg>
+          <span data-t="soon">Yakında Google Play'de</span>
+        </a>
+        <p class="note" data-t="note">Ücretsiz · Android · Türkçe, English, العربية</p>
+      </div>
+      <img class="hero-shot" data-shot="01_home" src="assets/tr_01_home.jpg" alt="" width="540" height="960">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="verse" aria-label="Örnek ayet">
+    <div class="ar" lang="ar">ٱلَّذِينَ ءَامَنُوا۟ وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ ٱللَّهِ ۗ أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ</div>
+    <div class="divider" aria-hidden="true"></div>
+    <p class="tr" data-t="verse">Bunlar, iman edenler ve gönülleri Allah'ın zikriyle sükûnete erenlerdir. Bilesiniz ki, kalpler ancak Allah'ı zikretmekle huzur bulur.</p>
+    <div class="ref" data-t="ref">Ra'd Suresi, 28. ayet</div>
+  </section>
+
+  <section class="block">
+    <h2 data-t="fh">Sade, ama ihtiyacınız olan her şey</h2>
+    <p class="sub" data-t="fs">Bildirimler tam vaktinde gelir; vakitler internetsiz, telefonunuzda hesaplanır.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></div>
+        <h3 data-t="f1h">Vakitte bir ayet</h3>
+        <p data-t="f1p">Her namaz vaktinde Arapça ve mealiyle bir ayet. Dilerseniz 5–15 dakika önce.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 data-t="f2h">Namaz vakitleri</h3>
+        <p data-t="f2p">Diyanet, MWL, ISNA, Ümmü'l-Kurâ ve diğer yöntemler. Aylık vakitler ve imsakiye.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></div>
+        <h3 data-t="f3h">Kıble</h3>
+        <p data-t="f3p">Kâbe'ye dönen canlı pusula, uzaklık ve kalibrasyon yardımı.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5z"/><path d="M12 6v13.5"/></svg></div>
+        <h3 data-t="f4h">Kur'an-ı Kerim</h3>
+        <p data-t="f4p">114 sure mealiyle, arama, kaldığınız yer ve hatim takibi. Zikirmatik ve Esmaü'l-Hüsna.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div>
+        <h3 data-t="f5h">Mübarek günler</h3>
+        <p data-t="f5p">Cuma, kandiller ve bayramlar; Ramazan'da sahur ve iftar hatırlatması.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></div>
+        <h3 data-t="f6h">Görselle paylaşın</h3>
+        <p data-t="f6p">Ayetleri ve Cuma tebriklerini WhatsApp durumu ve Instagram hikâyesi için paylaşın.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="sh">
+    <h2 id="sh" data-t="sh">Uygulamadan</h2>
+    <p class="sub" data-t="ss">Açık ve koyu temada, üç dilde.</p>
+    <div class="shots">
+      <img data-shot="01_home" src="assets/tr_01_home.jpg" alt="" width="540" height="960" loading="lazy">
+      <img data-shot="02_notif" src="assets/tr_02_notif.jpg" alt="" width="540" height="960" loading="lazy">
+      <img data-shot="03_share" src="assets/tr_03_share.jpg" alt="" width="540" height="960" loading="lazy">
+      <img data-shot="04_reader" src="assets/tr_04_reader.jpg" alt="" width="540" height="960" loading="lazy">
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="privacy">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <div>
+        <h2 data-t="ph">Verileriniz telefonunuzda kalır</h2>
+        <p data-t="pp">Hesap yok, sunucumuz yok. Konumunuz, favorileriniz ve ayarlarınız bize ulaşmaz. Kur'an okuyucu, bildirimler ve kıble reklamsızdır.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="privacy-policy.html" data-t="lp">Gizlilik Politikası</a>
+      <a href="mailto:doganaydeveloper@gmail.com"><span data-t="lc">İletişim</span>: doganaydeveloper@gmail.com</a>
+    </div>
+    <p data-t="src">Arapça metin: Tanzil Projesi (tanzil.net). Türkçe meal: Rowwad Tercüme Merkezi, QuranEnc.com (sürüm 1.0.4). İngilizce meal: Marmaduke Pickthall (1930).</p>
+    <p>© 2026 Ayet</p>
+  </div>
+</footer>
+
+<script>
+  // Google Play bağlantısı yayınlanınca buraya yazılır; boşken düğme "Yakında" gösterir.
+  const PLAY_URL = "";
+
+  const T = {
+    en: {
+      h1: "Five calm moments with the Quran, every day",
+      lead: "Ayet sends you one verse of the Holy Quran at every prayer time. No clutter: just the verse, its translation and your prayer times.",
+      soon: "Coming soon to Google Play", get: "Get it on Google Play",
+      note: "Free · Android · Türkçe, English, العربية",
+      verse: "Who have believed and whose hearts have rest in the remembrance of Allah. Verily in the remembrance of Allah do hearts find rest!", ref: "Surah Ar-Ra'd, verse 28",
+      fh: "Simple, with everything you need", fs: "Notifications arrive right on time; prayer times are calculated on your phone, offline.",
+      f1h: "A verse on time", f1p: "One verse with Arabic and translation at every prayer, or 5–15 minutes before.",
+      f2h: "Prayer times", f2p: "Diyanet, MWL, ISNA, Umm al-Qura and more. Monthly timetable included.",
+      f3h: "Qibla", f3p: "A live compass pointing to the Kaaba, with distance and calibration help.",
+      f4h: "The full Quran", f4p: "All 114 surahs with translation, search, bookmarks and khatm tracking. Dhikr counter and the 99 Names.",
+      f5h: "Special days", f5p: "Jumu'ah, holy nights and Eids; suhoor and iftar reminders in Ramadan.",
+      f6h: "Share as an image", f6p: "Share verses and Friday greetings for WhatsApp Status and Instagram Stories.",
+      sh: "Inside the app", ss: "Light and dark theme, in three languages.",
+      ph: "Your data stays on your phone", pp: "No account, no servers. Your location, favorites and settings never reach us. The Quran reader, notifications and Qibla are ad-free.",
+      lp: "Privacy Policy", lc: "Contact",
+      src: "Arabic text: Tanzil Project (tanzil.net). Turkish translation: Rowwad Translation Center, QuranEnc.com (version 1.0.4). English translation: Marmaduke Pickthall (1930)."
+    },
+    ar: {
+      h1: "خمس لحظات هادئة مع القرآن كل يوم",
+      lead: "يرسل لك تطبيق «آية» آيةً من القرآن الكريم مع كل صلاة. بلا ازدحام: الآية ومواقيت صلاتك فقط.",
+      soon: "قريبًا على Google Play", get: "احصل عليه من Google Play",
+      note: "مجاني · Android · Türkçe، English، العربية",
+      verse: "", ref: "سورة الرعد، الآية ٢٨",
+      fh: "بسيط، وفيه كل ما تحتاجه", fs: "تصل الإشعارات في وقتها، وتُحسب المواقيت على هاتفك دون إنترنت.",
+      f1h: "آية في وقتها", f1p: "آية بالعربية مع كل صلاة، أو قبلها بـ ٥–١٥ دقيقة.",
+      f2h: "مواقيت الصلاة", f2p: "ديانت ورابطة العالم الإسلامي وISNA وأم القرى وغيرها، مع جدول شهري.",
+      f3h: "القبلة", f3p: "بوصلة حية تتجه نحو الكعبة، مع المسافة والمساعدة في المعايرة.",
+      f4h: "القرآن الكريم", f4p: "١١٤ سورة، وبحث، ومتابعة القراءة والختمة، ومسبحة وأسماء الله الحسنى.",
+      f5h: "الأيام المباركة", f5p: "الجمعة والليالي المباركة والأعياد، وتذكير بالسحور والإفطار في رمضان.",
+      f6h: "شارك كصورة", f6p: "شارك الآيات وتهاني الجمعة لحالة واتساب وقصص إنستغرام.",
+      sh: "من التطبيق", ss: "بسمة فاتحة وداكنة، وبثلاث لغات.",
+      ph: "بياناتك تبقى على هاتفك", pp: "لا حساب ولا خوادم. موقعك ومفضلاتك وإعداداتك لا تصل إلينا. قارئ القرآن والإشعارات والقبلة بلا إعلانات.",
+      lp: "سياسة الخصوصية", lc: "تواصل معنا",
+      src: "النص العربي: مشروع تنزيل (tanzil.net). الترجمة التركية: مركز رواد للترجمة، QuranEnc.com (الإصدار ١.٠.٤). الترجمة الإنجليزية: مارمادوك بكثال (١٩٣٠)."
+    }
+  };
+  // Türkçe metinler sayfada yazılı; onları başlangıçta saklayıp geri dönüşte kullanıyoruz.
+  T.tr = {};
+  document.querySelectorAll("[data-t]").forEach(el => { T.tr[el.dataset.t] = el.textContent; });
+  T.tr.get = "Google Play'den indirin";
+
+  function apply(lang) {
+    const t = T[lang] || T.tr;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-t]").forEach(el => {
+      const v = t[el.dataset.t];
+      if (v !== undefined) { el.textContent = v; el.hidden = v === ""; }
+    });
+    document.querySelectorAll("[data-shot]").forEach(img => { img.src = `assets/${lang}_${img.dataset.shot}.jpg`; });
+    document.querySelectorAll(".langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+    const cta = document.getElementById("cta");
+    if (PLAY_URL) {
+      cta.href = PLAY_URL; cta.classList.remove("soon"); cta.removeAttribute("aria-disabled");
+      cta.querySelector("span").textContent = t.get;
+    }
+    try { localStorage.setItem("ayet-lang", lang); } catch (e) {}
+  }
+
+  document.querySelectorAll(".langs button").forEach(b => b.addEventListener("click", () => apply(b.dataset.lang)));
+  let start = new URLSearchParams(location.search).get("lang");
+  if (!start) { try { start = localStorage.getItem("ayet-lang"); } catch (e) {} }
+  if (!start) { const n = (navigator.language || "tr").slice(0, 2); start = ["tr", "en", "ar"].includes(n) ? n : "en"; }
+  apply(T[start] ? start : "tr");
+</script>
+</body>
+</html>
